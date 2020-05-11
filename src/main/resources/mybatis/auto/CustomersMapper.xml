@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fc.test.mapper.auto.CustomersMapper">
+  <resultMap id="BaseResultMap" type="com.fc.test.model.auto.Customers">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="customer_name" jdbcType="VARCHAR" property="customerName" />
+    <result column="customer_alias" jdbcType="VARCHAR" property="customerAlias" />
+    <result column="customer_address" jdbcType="VARCHAR" property="customerAddress" />
+    <result column="customer_intro" jdbcType="VARCHAR" property="customerIntro" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+<sql id="Base_Column_List">
+	  	  	      	id,
+       	  	      	customer_name,
+       	  	      	customer_alias,
+       	  	      	customer_address,
+       	  	    	  	customer_intro
+       	</sql>
+  <select id="selectByExample" parameterType="com.fc.test.model.auto.CustomersExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from xtk_customers
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from xtk_customers
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from xtk_customers
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.fc.test.model.auto.CustomersExample">
+    delete from xtk_customers
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  
+  <insert id="insert" parameterType="com.fc.test.model.auto.Customers">
+    insert into xtk_customers (
+      	  	       id,
+       	  	       customer_name,
+       	  	       customer_alias,
+       	  	       customer_address,
+       	  	    	  customer_intro
+       	    )
+    values (
+	  	  	      	#{id,jdbcType=INTEGER},
+       	  	      	#{customerName,jdbcType=VARCHAR},
+       	  	      	#{customerAlias,jdbcType=VARCHAR},
+       	  	      	#{customerAddress,jdbcType=VARCHAR},
+       	  	    	  #{customerIntro,jdbcType=VARCHAR}
+       	    )
+  </insert>
+  
+  <insert id="insertSelective" parameterType="com.fc.test.model.auto.Customers">
+    insert into xtk_customers
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+          
+      <if test="id != null">
+        id,
+      </if>
+      
+         
+      <if test="customerName != null">
+        customer_name,
+      </if>
+      
+         
+      <if test="customerAlias != null">
+        customer_alias,
+      </if>
+      
+         
+      <if test="customerAddress != null">
+        customer_address,
+      </if>
+      
+         
+      <if test="customerIntro != null">
+        customer_intro,
+      </if>
+      
+         </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+          <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+          <if test="customerName != null">
+        #{customerName,jdbcType=VARCHAR},
+      </if>
+          <if test="customerAlias != null">
+        #{customerAlias,jdbcType=VARCHAR},
+      </if>
+          <if test="customerAddress != null">
+        #{customerAddress,jdbcType=VARCHAR},
+      </if>
+          <if test="customerIntro != null">
+        #{customerIntro,jdbcType=VARCHAR},
+      </if>
+        </trim>
+  </insert>
+  
+  <select id="countByExample" parameterType="com.fc.test.model.auto.CustomersExample" resultType="java.lang.Long">
+    select count(*) from xtk_customers
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <update id="updateByExampleSelective" parameterType="map">
+    update xtk_customers
+    <set>
+          <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+          <if test="record.customerName != null">
+        customer_name = #{record.customerName,jdbcType=VARCHAR},
+      </if>
+          <if test="record.customerAlias != null">
+        customer_alias = #{record.customerAlias,jdbcType=VARCHAR},
+      </if>
+          <if test="record.customerAddress != null">
+        customer_address = #{record.customerAddress,jdbcType=VARCHAR},
+      </if>
+          <if test="record.customerIntro != null">
+        customer_intro = #{record.customerIntro,jdbcType=VARCHAR},
+      </if>
+         
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  
+  
+  <update id="updateByExample" parameterType="map">
+    update xtk_customers
+    set
+            	     	 id = #{record.id,jdbcType=INTEGER},
+    	         	     	 customer_name = #{record.customerName,jdbcType=VARCHAR},
+    	         	     	 customer_alias = #{record.customerAlias,jdbcType=VARCHAR},
+    	         	     	 customer_address = #{record.customerAddress,jdbcType=VARCHAR},
+    	         	     	 customer_intro = #{record.customerIntro,jdbcType=VARCHAR}
+    	         <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  
+  
+      <update id="updateByPrimaryKeySelective" parameterType="com.fc.test.model.auto.Customers">
+    update xtk_customers
+    <set>
+                          <if test="customerName != null">
+        customer_name = #{customerName,jdbcType=VARCHAR},
+      </if>
+                      <if test="customerAlias != null">
+        customer_alias = #{customerAlias,jdbcType=VARCHAR},
+      </if>
+                      <if test="customerAddress != null">
+        customer_address = #{customerAddress,jdbcType=VARCHAR},
+      </if>
+                      <if test="customerIntro != null">
+        customer_intro = #{customerIntro,jdbcType=VARCHAR},
+      </if>
+              </set>
+    where 
+            id = #{id,jdbcType=INTEGER}
+                                          
+  </update>
+
+      	      	   	      	   	      	   	      	   	      	
+
+  <update id="updateByPrimaryKey" parameterType="com.fc.test.model.auto.Customers">
+    update xtk_customers
+    set 
+             	        	    	 			customer_name = #{customerName,jdbcType=VARCHAR},
+		     	        	    	 			customer_alias = #{customerAlias,jdbcType=VARCHAR},
+		     	        	    	 			customer_address = #{customerAddress,jdbcType=VARCHAR},
+		     	        	    	 			customer_intro = #{customerIntro,jdbcType=VARCHAR}
+		     	        where 
+            id = #{id,jdbcType=INTEGER}
+                                            
+  </update>
+  
+                             
+</mapper>
