@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.fc.test.mapper.auto.MytsttbMapper">
-  <resultMap id="BaseResultMap" type="com.fc.test.model.auto.Mytsttb">
+<mapper namespace="com.xtk.anal.mapper.auto.MytsttbMapper">
+  <resultMap id="BaseResultMap" type="com.xtk.anal.model.auto.Mytsttb">
     <result column="id" jdbcType="VARCHAR" property="id" />
     <result column="c2" jdbcType="VARCHAR" property="c2" />
     <result column="c3" jdbcType="VARCHAR" property="c3" />
@@ -73,7 +73,7 @@
        	  	      	c4,
        	  	    	  	c5
        	</sql>
-  <select id="selectByExample" parameterType="com.fc.test.model.auto.MytsttbExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xtk.anal.model.auto.MytsttbExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -98,14 +98,14 @@
     delete from ys_mytsttb
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.fc.test.model.auto.MytsttbExample">
+  <delete id="deleteByExample" parameterType="com.xtk.anal.model.auto.MytsttbExample">
     delete from ys_mytsttb
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   
-  <insert id="insert" parameterType="com.fc.test.model.auto.Mytsttb">
+  <insert id="insert" parameterType="com.xtk.anal.model.auto.Mytsttb">
     insert into ys_mytsttb (
       	  	       id,
        	  	       c2,
@@ -122,7 +122,7 @@
        	    )
   </insert>
   
-  <insert id="insertSelective" parameterType="com.fc.test.model.auto.Mytsttb">
+  <insert id="insertSelective" parameterType="com.xtk.anal.model.auto.Mytsttb">
     insert into ys_mytsttb
     <trim prefix="(" suffix=")" suffixOverrides=",">
           
@@ -170,7 +170,7 @@
         </trim>
   </insert>
   
-  <select id="countByExample" parameterType="com.fc.test.model.auto.MytsttbExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.xtk.anal.model.auto.MytsttbExample" resultType="java.lang.Long">
     select count(*) from ys_mytsttb
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -217,7 +217,7 @@
   </update>
   
   
-      <update id="updateByPrimaryKeySelective" parameterType="com.fc.test.model.auto.Mytsttb">
+      <update id="updateByPrimaryKeySelective" parameterType="com.xtk.anal.model.auto.Mytsttb">
     update ys_mytsttb
     <set>
                           <if test="c2 != null">
@@ -240,7 +240,7 @@
 
       	      	   	      	   	      	   	      	   	      	
 
-  <update id="updateByPrimaryKey" parameterType="com.fc.test.model.auto.Mytsttb">
+  <update id="updateByPrimaryKey" parameterType="com.xtk.anal.model.auto.Mytsttb">
     update ys_mytsttb
     set 
              	        	    	 			c2 = #{c2,jdbcType=VARCHAR},

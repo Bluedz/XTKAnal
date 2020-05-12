@@ -1,7 +1,7 @@
 /**
  * 用户管理JS
  * 
- * @Author fc
+ * @Author xtk
  */
 window.isexpandAll=false;
 (function($) {

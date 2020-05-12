@@ -1,8 +1,6 @@
 package test;
 
 
-import java.io.File;
-import java.io.Writer;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -15,15 +13,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
-import org.thymeleaf.context.IContext;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
-import com.fc.SpringbootStart;
-import com.fc.test.common.spring.SpringUtils;
-import com.fc.test.mapper.auto.GeneratorMapper;
-import com.fc.test.mapper.custom.TsysUserDao;
-
-import cn.hutool.core.io.file.FileWriter;
-import cn.hutool.json.JSONUtil;
+import com.xtk.SpringbootStart;
+import com.xtk.anal.common.spring.SpringUtils;
+import com.xtk.anal.mapper.auto.GeneratorMapper;
+import com.xtk.anal.mapper.custom.TsysUserDao;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = SpringbootStart.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)

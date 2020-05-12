@@ -100,7 +100,7 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
     <logger name="java.sql.Statement" level="DEBUG"/>
     <logger name="java.sql.PreparedStatement" level="DEBUG"/>
 	<!-- 自己项目的 -->
-	<logger name="com.fc" level="DEBUG"/>
+	<logger name="com.xtk" level="DEBUG"/>
 	
 	
 	<!--
@@ -167,7 +167,7 @@ idea好像会报错解决方案
 2、
 dev环境   与    生产环境  根据application.yml 里面的
 spring :
-  # 环境 dev|test|prod
+  # 环境 dev|anal|prod
   profiles :
     active : prod
     
@@ -176,7 +176,7 @@ spring :
 
 3、如果改变了的目录结构需要修改 上面的 name为自己的项目目录
 
-<logger name="com.fc" level="DEBUG"/>
+<logger name="com.xtk" level="DEBUG"/>
 
 
 

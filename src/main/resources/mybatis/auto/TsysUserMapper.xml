@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.fc.test.mapper.auto.TsysUserMapper">
-  <resultMap id="BaseResultMap" type="com.fc.test.model.auto.TsysUser">
+<mapper namespace="com.xtk.anal.mapper.auto.TsysUserMapper">
+  <resultMap id="BaseResultMap" type="com.xtk.anal.model.auto.TsysUser">
     <constructor>
       <idArg column="id" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="username" javaType="java.lang.String" jdbcType="VARCHAR" />
@@ -70,7 +70,7 @@
   <sql id="Base_Column_List">
     id, username, password, nickname
   </sql>
-  <select id="selectByExample" parameterType="com.fc.test.model.auto.TsysUserExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xtk.anal.model.auto.TsysUserExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -94,19 +94,19 @@
     delete from t_sys_user
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.fc.test.model.auto.TsysUserExample">
+  <delete id="deleteByExample" parameterType="com.xtk.anal.model.auto.TsysUserExample">
     delete from t_sys_user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.fc.test.model.auto.TsysUser">
+  <insert id="insert" parameterType="com.xtk.anal.model.auto.TsysUser">
     insert into t_sys_user (id, username, password, 
       nickname)
     values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{nickname,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.fc.test.model.auto.TsysUser">
+  <insert id="insertSelective" parameterType="com.xtk.anal.model.auto.TsysUser">
     insert into t_sys_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -137,7 +137,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.fc.test.model.auto.TsysUserExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.xtk.anal.model.auto.TsysUserExample" resultType="java.lang.Long">
     select count(*) from t_sys_user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -173,7 +173,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.fc.test.model.auto.TsysUser">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xtk.anal.model.auto.TsysUser">
     update t_sys_user
     <set>
       <if test="username != null">
@@ -188,7 +188,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.fc.test.model.auto.TsysUser">
+  <update id="updateByPrimaryKey" parameterType="com.xtk.anal.model.auto.TsysUser">
     update t_sys_user
     set username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},

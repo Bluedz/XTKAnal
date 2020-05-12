@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.fc.test.mapper.auto.CustomersMapper">
-  <resultMap id="BaseResultMap" type="com.fc.test.model.auto.Customers">
+<mapper namespace="com.xtk.anal.mapper.auto.CustomersMapper">
+  <resultMap id="BaseResultMap" type="com.xtk.anal.model.auto.Customers">
     <result column="id" jdbcType="INTEGER" property="id" />
     <result column="customer_name" jdbcType="VARCHAR" property="customerName" />
     <result column="customer_alias" jdbcType="VARCHAR" property="customerAlias" />
@@ -73,7 +73,7 @@
        	  	      	customer_address,
        	  	    	  	customer_intro
        	</sql>
-  <select id="selectByExample" parameterType="com.fc.test.model.auto.CustomersExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xtk.anal.model.auto.CustomersExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -98,14 +98,14 @@
     delete from xtk_customers
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.fc.test.model.auto.CustomersExample">
+  <delete id="deleteByExample" parameterType="com.xtk.anal.model.auto.CustomersExample">
     delete from xtk_customers
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   
-  <insert id="insert" parameterType="com.fc.test.model.auto.Customers">
+  <insert id="insert" parameterType="com.xtk.anal.model.auto.Customers">
     insert into xtk_customers (
       	  	       id,
        	  	       customer_name,
@@ -122,7 +122,7 @@
        	    )
   </insert>
   
-  <insert id="insertSelective" parameterType="com.fc.test.model.auto.Customers">
+  <insert id="insertSelective" parameterType="com.xtk.anal.model.auto.Customers">
     insert into xtk_customers
     <trim prefix="(" suffix=")" suffixOverrides=",">
           
@@ -170,7 +170,7 @@
         </trim>
   </insert>
   
-  <select id="countByExample" parameterType="com.fc.test.model.auto.CustomersExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.xtk.anal.model.auto.CustomersExample" resultType="java.lang.Long">
     select count(*) from xtk_customers
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -217,7 +217,7 @@
   </update>
   
   
-      <update id="updateByPrimaryKeySelective" parameterType="com.fc.test.model.auto.Customers">
+      <update id="updateByPrimaryKeySelective" parameterType="com.xtk.anal.model.auto.Customers">
     update xtk_customers
     <set>
                           <if test="customerName != null">
@@ -240,7 +240,7 @@
 
       	      	   	      	   	      	   	      	   	      	
 
-  <update id="updateByPrimaryKey" parameterType="com.fc.test.model.auto.Customers">
+  <update id="updateByPrimaryKey" parameterType="com.xtk.anal.model.auto.Customers">
     update xtk_customers
     set 
              	        	    	 			customer_name = #{customerName,jdbcType=VARCHAR},
