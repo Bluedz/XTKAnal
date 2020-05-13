@@ -161,6 +161,21 @@ public class MytsttbController extends BaseController{
    	public Mytsttb edit(@PathVariable("id") String id) {
    		return mytsttbService.selectByPrimaryKey(id);
    	}
+
+	/**
+	 * 根据主键查询2
+	 *
+	 * @param id
+	 * @param mmap
+	 * @return
+	 */
+	@ApiOperation(value = "根据id查询唯一2", notes = "根据id查询唯一2")
+	@PostMapping("/get2/{id}")
+	public String get2(@PathVariable("id") String id, ModelMap mmap) {
+		mmap.put("Mytsttb", mytsttbService.selectByPrimaryKey(id));
+		return prefix + "/edit2";
+
+	}
     
 
 	

@@ -64,6 +64,16 @@
                             </div>
                         </div>
                 	<!-- END搜索条件 -->
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label ">11111111码：</label>
+                        <div class="col-sm-8">
+                            <select name="sex" class="form-control m-b" th:with="type=${@dict.getType('sys_province_state')}">
+                                <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                            </select>
+                        </div>
+                    </div>
+
                     <!-- 空白页开始-->
                     <div class="nest" id="Blank_PageClose">
                         <div class="title-alt">
