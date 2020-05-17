@@ -151,6 +151,10 @@
                 };
                 $.ajax(config)
             },
+            getById: function(id) {
+                var url = $.table._option.getByIdUrl.replace("{id}", id);
+                $.modal.open("详情" + $.table._option.modalName, url);
+            },
             add: function(id) {
                 var url = $.common.isEmpty(id) ? $.table._option.createUrl : $.table._option.createUrl.replace("{id}", id);
                 $.modal.open("添加" + $.table._option.modalName, url);

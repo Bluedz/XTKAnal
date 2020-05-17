@@ -28,7 +28,8 @@ public class IndexController extends BaseController{
 	public String index(ModelMap map) {
 		String str="前台";
 		setTitle(map, new TitleVo("列表", str+"管理", true,"欢迎进入"+str+"页面", true, false));
-    	return "index";
+//    	return "index";
+		return "/login";
 	}
 	/**
 	 * 前台访问/index的get请求
@@ -43,5 +44,6 @@ public class IndexController extends BaseController{
 		String str="前台";
 		setTitle(map, new TitleVo("列表", str+"管理", true,"欢迎进入"+str+"页面", true, false));
 		return "index";
+//		return "/admin/login";
 	}
 }

@@ -170,6 +170,7 @@ public class MytsttbController extends BaseController{
 	 * @return
 	 */
 	@ApiOperation(value = "根据id查询唯一2", notes = "根据id查询唯一2")
+	@RequiresPermissions("gen:mytsttb:getbyid")
 	@RequestMapping("/getbyid/{id}")
 	public String getById(@PathVariable("id") String id, ModelMap mmap) {
 		String str="《查单个内容》";

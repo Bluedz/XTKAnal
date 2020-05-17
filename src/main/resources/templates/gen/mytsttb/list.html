@@ -141,11 +141,13 @@
       	   	      	      	      	      	      
 <!-- 导出 -->
 var dataUrl=window.rootPath+"/MytsttbController/list";
+var getByIdUrl = window.rootPath+"/MytsttbController/getbyid/{id}";
 var removeUrl=window.rootPath+"/MytsttbController/remove";
 var createUrl=window.rootPath+"/MytsttbController/add";
 var updateUrl=window.rootPath+"/MytsttbController/edit/{id}";
 var exportUrl=window.rootPath+"/MytsttbController/export";
   var options = {
+        getByIdUrl: getByIdUrl,
 		dataUrl: dataUrl,
         createUrl: createUrl,
         updateUrl: updateUrl,
@@ -204,6 +206,7 @@ var exportUrl=window.rootPath+"/MytsttbController/export";
 			    formatter: function (value, row, index) {
 			        var id = row.id;
 			        var actions = [];
+                    actions.push('<a class="btn btn-success btn-xs"  href="#" onclick="$.operate.getById(\'' + row.id + '\')"><i class="fa fa-edit"></i>查看</a> ');
 			        actions.push('<a class="btn btn-success btn-xs"  href="#" onclick="$.operate.edit(\'' + row.id + '\')"><i class="fa fa-edit"></i>编辑</a> ');
 			        actions.push('<a class="btn btn-danger btn-xs" href="#" onclick="$.operate.remove(\'' + row.id + '\')"><i class="fa fa-remove"></i>删除</a>');
 			        return actions.join('');
