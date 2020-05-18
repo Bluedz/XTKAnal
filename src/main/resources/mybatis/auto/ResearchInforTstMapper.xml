@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xtk.anal.mapper.auto.ResearchInforTstMapper">
+  <resultMap id="BaseResultMap" type="com.xtk.anal.model.auto.ResearchInforTst">
+    <result column="id" jdbcType="VARCHAR" property="id" />
+    <result column="registrar" jdbcType="VARCHAR" property="registrar" />
+    <result column="customer_name" jdbcType="VARCHAR" property="customerName" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="workshop" jdbcType="VARCHAR" property="workshop" />
+    <result column="design_capacity" jdbcType="VARCHAR" property="designCapacity" />
+    <result column="assets_original_value" jdbcType="VARCHAR" property="assetsOriginalValue" />
+    <result column="asset_list" jdbcType="VARCHAR" property="assetList" />
+    <result column="SOP_time" jdbcType="TIMESTAMP" property="sOPTime" />
+    <result column="companion_production_plan" jdbcType="VARCHAR" property="companionProductionPlan" />
+    <result column="General_contractor_integrator" jdbcType="VARCHAR" property="generalContractorIntegrator" />
+    <result column="TOP10" jdbcType="VARCHAR" property="tOP10" />
+    <result column="scrappage_scheme" jdbcType="VARCHAR" property="scrappageScheme" />
+    <result column="turnover_consumption_list" jdbcType="VARCHAR" property="turnoverConsumptionList" />
+    <result column="supply_cycle_list" jdbcType="VARCHAR" property="supplyCycleList" />
+    <result column="specification_category_list" jdbcType="VARCHAR" property="specificationCategoryList" />
+    <result column="framework_agreement_coverage" jdbcType="VARCHAR" property="frameworkAgreementCoverage" />
+    <result column="opening_rate" jdbcType="VARCHAR" property="openingRate" />
+    <result column="downtime_rate" jdbcType="VARCHAR" property="downtimeRate" />
+    <result column="pain_points" jdbcType="VARCHAR" property="painPoints" />
+    <result column="material_coverage" jdbcType="VARCHAR" property="materialCoverage" />
+    <result column="comparison_result" jdbcType="VARCHAR" property="comparisonResult" />
+    <result column="conclusion" jdbcType="VARCHAR" property="conclusion" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+<sql id="Base_Column_List">
+	  	  	      	id,
+       	  	      	registrar,
+       	  	      	customer_name,
+       	  	      	description,
+       	  	      	workshop,
+       	  	      	design_capacity,
+       	  	      	assets_original_value,
+       	  	      	asset_list,
+       	  	      	SOP_time,
+       	  	      	companion_production_plan,
+       	  	      	General_contractor_integrator,
+       	  	      	TOP10,
+       	  	      	scrappage_scheme,
+       	  	      	turnover_consumption_list,
+       	  	      	supply_cycle_list,
+       	  	      	specification_category_list,
+       	  	      	framework_agreement_coverage,
+       	  	      	opening_rate,
+       	  	      	downtime_rate,
+       	  	      	pain_points,
+       	  	      	material_coverage,
+       	  	      	comparison_result,
+       	  	      	conclusion,
+       	  	    	  	create_time
+       	</sql>
+  <select id="selectByExample" parameterType="com.xtk.anal.model.auto.ResearchInforTstExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from xtk_research_infor_tst
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from xtk_research_infor_tst
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from xtk_research_infor_tst
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xtk.anal.model.auto.ResearchInforTstExample">
+    delete from xtk_research_infor_tst
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  
+  <insert id="insert" parameterType="com.xtk.anal.model.auto.ResearchInforTst">
+    insert into xtk_research_infor_tst (
+      	  	       id,
+       	  	       registrar,
+       	  	       customer_name,
+       	  	       description,
+       	  	       workshop,
+       	  	       design_capacity,
+       	  	       assets_original_value,
+       	  	       asset_list,
+       	  	       SOP_time,
+       	  	       companion_production_plan,
+       	  	       General_contractor_integrator,
+       	  	       TOP10,
+       	  	       scrappage_scheme,
+       	  	       turnover_consumption_list,
+       	  	       supply_cycle_list,
+       	  	       specification_category_list,
+       	  	       framework_agreement_coverage,
+       	  	       opening_rate,
+       	  	       downtime_rate,
+       	  	       pain_points,
+       	  	       material_coverage,
+       	  	       comparison_result,
+       	  	       conclusion,
+       	  	    	  create_time
+       	    )
+    values (
+	  	  	      	#{id,jdbcType=VARCHAR},
+       	  	      	#{registrar,jdbcType=VARCHAR},
+       	  	      	#{customerName,jdbcType=VARCHAR},
+       	  	      	#{description,jdbcType=VARCHAR},
+       	  	      	#{workshop,jdbcType=VARCHAR},
+       	  	      	#{designCapacity,jdbcType=VARCHAR},
+       	  	      	#{assetsOriginalValue,jdbcType=VARCHAR},
+       	  	      	#{assetList,jdbcType=VARCHAR},
+       	  	      	#{sOPTime,jdbcType=TIMESTAMP},
+       	  	      	#{companionProductionPlan,jdbcType=VARCHAR},
+       	  	      	#{generalContractorIntegrator,jdbcType=VARCHAR},
+       	  	      	#{tOP10,jdbcType=VARCHAR},
+       	  	      	#{scrappageScheme,jdbcType=VARCHAR},
+       	  	      	#{turnoverConsumptionList,jdbcType=VARCHAR},
+       	  	      	#{supplyCycleList,jdbcType=VARCHAR},
+       	  	      	#{specificationCategoryList,jdbcType=VARCHAR},
+       	  	      	#{frameworkAgreementCoverage,jdbcType=VARCHAR},
+       	  	      	#{openingRate,jdbcType=VARCHAR},
+       	  	      	#{downtimeRate,jdbcType=VARCHAR},
+       	  	      	#{painPoints,jdbcType=VARCHAR},
+       	  	      	#{materialCoverage,jdbcType=VARCHAR},
+       	  	      	#{comparisonResult,jdbcType=VARCHAR},
+       	  	      	#{conclusion,jdbcType=VARCHAR},
+       	  	    	  #{createTime,jdbcType=TIMESTAMP}
+       	    )
+  </insert>
+  
+  <insert id="insertSelective" parameterType="com.xtk.anal.model.auto.ResearchInforTst">
+    insert into xtk_research_infor_tst
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+          
+      <if test="id != null">
+        id,
+      </if>
+      
+         
+      <if test="registrar != null">
+        registrar,
+      </if>
+      
+         
+      <if test="customerName != null">
+        customer_name,
+      </if>
+      
+         
+      <if test="description != null">
+        description,
+      </if>
+      
+         
+      <if test="workshop != null">
+        workshop,
+      </if>
+      
+         
+      <if test="designCapacity != null">
+        design_capacity,
+      </if>
+      
+         
+      <if test="assetsOriginalValue != null">
+        assets_original_value,
+      </if>
+      
+         
+      <if test="assetList != null">
+        asset_list,
+      </if>
+      
+         
+      <if test="sOPTime != null">
+        SOP_time,
+      </if>
+      
+         
+      <if test="companionProductionPlan != null">
+        companion_production_plan,
+      </if>
+      
+         
+      <if test="generalContractorIntegrator != null">
+        General_contractor_integrator,
+      </if>
+      
+         
+      <if test="tOP10 != null">
+        TOP10,
+      </if>
+      
+         
+      <if test="scrappageScheme != null">
+        scrappage_scheme,
+      </if>
+      
+         
+      <if test="turnoverConsumptionList != null">
+        turnover_consumption_list,
+      </if>
+      
+         
+      <if test="supplyCycleList != null">
+        supply_cycle_list,
+      </if>
+      
+         
+      <if test="specificationCategoryList != null">
+        specification_category_list,
+      </if>
+      
+         
+      <if test="frameworkAgreementCoverage != null">
+        framework_agreement_coverage,
+      </if>
+      
+         
+      <if test="openingRate != null">
+        opening_rate,
+      </if>
+      
+         
+      <if test="downtimeRate != null">
+        downtime_rate,
+      </if>
+      
+         
+      <if test="painPoints != null">
+        pain_points,
+      </if>
+      
+         
+      <if test="materialCoverage != null">
+        material_coverage,
+      </if>
+      
+         
+      <if test="comparisonResult != null">
+        comparison_result,
+      </if>
+      
+         
+      <if test="conclusion != null">
+        conclusion,
+      </if>
+      
+         
+      <if test="createTime != null">
+        create_time,
+      </if>
+      
+         </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+          <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+          <if test="registrar != null">
+        #{registrar,jdbcType=VARCHAR},
+      </if>
+          <if test="customerName != null">
+        #{customerName,jdbcType=VARCHAR},
+      </if>
+          <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+          <if test="workshop != null">
+        #{workshop,jdbcType=VARCHAR},
+      </if>
+          <if test="designCapacity != null">
+        #{designCapacity,jdbcType=VARCHAR},
+      </if>
+          <if test="assetsOriginalValue != null">
+        #{assetsOriginalValue,jdbcType=VARCHAR},
+      </if>
+          <if test="assetList != null">
+        #{assetList,jdbcType=VARCHAR},
+      </if>
+          <if test="sOPTime != null">
+        #{sOPTime,jdbcType=TIMESTAMP},
+      </if>
+          <if test="companionProductionPlan != null">
+        #{companionProductionPlan,jdbcType=VARCHAR},
+      </if>
+          <if test="generalContractorIntegrator != null">
+        #{generalContractorIntegrator,jdbcType=VARCHAR},
+      </if>
+          <if test="tOP10 != null">
+        #{tOP10,jdbcType=VARCHAR},
+      </if>
+          <if test="scrappageScheme != null">
+        #{scrappageScheme,jdbcType=VARCHAR},
+      </if>
+          <if test="turnoverConsumptionList != null">
+        #{turnoverConsumptionList,jdbcType=VARCHAR},
+      </if>
+          <if test="supplyCycleList != null">
+        #{supplyCycleList,jdbcType=VARCHAR},
+      </if>
+          <if test="specificationCategoryList != null">
+        #{specificationCategoryList,jdbcType=VARCHAR},
+      </if>
+          <if test="frameworkAgreementCoverage != null">
+        #{frameworkAgreementCoverage,jdbcType=VARCHAR},
+      </if>
+          <if test="openingRate != null">
+        #{openingRate,jdbcType=VARCHAR},
+      </if>
+          <if test="downtimeRate != null">
+        #{downtimeRate,jdbcType=VARCHAR},
+      </if>
+          <if test="painPoints != null">
+        #{painPoints,jdbcType=VARCHAR},
+      </if>
+          <if test="materialCoverage != null">
+        #{materialCoverage,jdbcType=VARCHAR},
+      </if>
+          <if test="comparisonResult != null">
+        #{comparisonResult,jdbcType=VARCHAR},
+      </if>
+          <if test="conclusion != null">
+        #{conclusion,jdbcType=VARCHAR},
+      </if>
+          <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+        </trim>
+  </insert>
+  
+  <select id="countByExample" parameterType="com.xtk.anal.model.auto.ResearchInforTstExample" resultType="java.lang.Long">
+    select count(*) from xtk_research_infor_tst
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <update id="updateByExampleSelective" parameterType="map">
+    update xtk_research_infor_tst
+    <set>
+          <if test="record.id != null">
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+          <if test="record.registrar != null">
+        registrar = #{record.registrar,jdbcType=VARCHAR},
+      </if>
+          <if test="record.customerName != null">
+        customer_name = #{record.customerName,jdbcType=VARCHAR},
+      </if>
+          <if test="record.description != null">
+        description = #{record.description,jdbcType=VARCHAR},
+      </if>
+          <if test="record.workshop != null">
+        workshop = #{record.workshop,jdbcType=VARCHAR},
+      </if>
+          <if test="record.designCapacity != null">
+        design_capacity = #{record.designCapacity,jdbcType=VARCHAR},
+      </if>
+          <if test="record.assetsOriginalValue != null">
+        assets_original_value = #{record.assetsOriginalValue,jdbcType=VARCHAR},
+      </if>
+          <if test="record.assetList != null">
+        asset_list = #{record.assetList,jdbcType=VARCHAR},
+      </if>
+          <if test="record.sOPTime != null">
+        SOP_time = #{record.sOPTime,jdbcType=TIMESTAMP},
+      </if>
+          <if test="record.companionProductionPlan != null">
+        companion_production_plan = #{record.companionProductionPlan,jdbcType=VARCHAR},
+      </if>
+          <if test="record.generalContractorIntegrator != null">
+        General_contractor_integrator = #{record.generalContractorIntegrator,jdbcType=VARCHAR},
+      </if>
+          <if test="record.tOP10 != null">
+        TOP10 = #{record.tOP10,jdbcType=VARCHAR},
+      </if>
+          <if test="record.scrappageScheme != null">
+        scrappage_scheme = #{record.scrappageScheme,jdbcType=VARCHAR},
+      </if>
+          <if test="record.turnoverConsumptionList != null">
+        turnover_consumption_list = #{record.turnoverConsumptionList,jdbcType=VARCHAR},
+      </if>
+          <if test="record.supplyCycleList != null">
+        supply_cycle_list = #{record.supplyCycleList,jdbcType=VARCHAR},
+      </if>
+          <if test="record.specificationCategoryList != null">
+        specification_category_list = #{record.specificationCategoryList,jdbcType=VARCHAR},
+      </if>
+          <if test="record.frameworkAgreementCoverage != null">
+        framework_agreement_coverage = #{record.frameworkAgreementCoverage,jdbcType=VARCHAR},
+      </if>
+          <if test="record.openingRate != null">
+        opening_rate = #{record.openingRate,jdbcType=VARCHAR},
+      </if>
+          <if test="record.downtimeRate != null">
+        downtime_rate = #{record.downtimeRate,jdbcType=VARCHAR},
+      </if>
+          <if test="record.painPoints != null">
+        pain_points = #{record.painPoints,jdbcType=VARCHAR},
+      </if>
+          <if test="record.materialCoverage != null">
+        material_coverage = #{record.materialCoverage,jdbcType=VARCHAR},
+      </if>
+          <if test="record.comparisonResult != null">
+        comparison_result = #{record.comparisonResult,jdbcType=VARCHAR},
+      </if>
+          <if test="record.conclusion != null">
+        conclusion = #{record.conclusion,jdbcType=VARCHAR},
+      </if>
+          <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+         
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  
+  
+  <update id="updateByExample" parameterType="map">
+    update xtk_research_infor_tst
+    set
+            	     	 id = #{record.id,jdbcType=VARCHAR},
+    	         	     	 registrar = #{record.registrar,jdbcType=VARCHAR},
+    	         	     	 customer_name = #{record.customerName,jdbcType=VARCHAR},
+    	         	     	 description = #{record.description,jdbcType=VARCHAR},
+    	         	     	 workshop = #{record.workshop,jdbcType=VARCHAR},
+    	         	     	 design_capacity = #{record.designCapacity,jdbcType=VARCHAR},
+    	         	     	 assets_original_value = #{record.assetsOriginalValue,jdbcType=VARCHAR},
+    	         	     	 asset_list = #{record.assetList,jdbcType=VARCHAR},
+    	         	     	 SOP_time = #{record.sOPTime,jdbcType=TIMESTAMP},
+    	         	     	 companion_production_plan = #{record.companionProductionPlan,jdbcType=VARCHAR},
+    	         	     	 General_contractor_integrator = #{record.generalContractorIntegrator,jdbcType=VARCHAR},
+    	         	     	 TOP10 = #{record.tOP10,jdbcType=VARCHAR},
+    	         	     	 scrappage_scheme = #{record.scrappageScheme,jdbcType=VARCHAR},
+    	         	     	 turnover_consumption_list = #{record.turnoverConsumptionList,jdbcType=VARCHAR},
+    	         	     	 supply_cycle_list = #{record.supplyCycleList,jdbcType=VARCHAR},
+    	         	     	 specification_category_list = #{record.specificationCategoryList,jdbcType=VARCHAR},
+    	         	     	 framework_agreement_coverage = #{record.frameworkAgreementCoverage,jdbcType=VARCHAR},
+    	         	     	 opening_rate = #{record.openingRate,jdbcType=VARCHAR},
+    	         	     	 downtime_rate = #{record.downtimeRate,jdbcType=VARCHAR},
+    	         	     	 pain_points = #{record.painPoints,jdbcType=VARCHAR},
+    	         	     	 material_coverage = #{record.materialCoverage,jdbcType=VARCHAR},
+    	         	     	 comparison_result = #{record.comparisonResult,jdbcType=VARCHAR},
+    	         	     	 conclusion = #{record.conclusion,jdbcType=VARCHAR},
+    	         	     	 create_time = #{record.createTime,jdbcType=TIMESTAMP}
+    	         <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  
+  
+      <update id="updateByPrimaryKeySelective" parameterType="com.xtk.anal.model.auto.ResearchInforTst">
+    update xtk_research_infor_tst
+    <set>
+                          <if test="registrar != null">
+        registrar = #{registrar,jdbcType=VARCHAR},
+      </if>
+                      <if test="customerName != null">
+        customer_name = #{customerName,jdbcType=VARCHAR},
+      </if>
+                      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+                      <if test="workshop != null">
+        workshop = #{workshop,jdbcType=VARCHAR},
+      </if>
+                      <if test="designCapacity != null">
+        design_capacity = #{designCapacity,jdbcType=VARCHAR},
+      </if>
+                      <if test="assetsOriginalValue != null">
+        assets_original_value = #{assetsOriginalValue,jdbcType=VARCHAR},
+      </if>
+                      <if test="assetList != null">
+        asset_list = #{assetList,jdbcType=VARCHAR},
+      </if>
+                      <if test="sOPTime != null">
+        SOP_time = #{sOPTime,jdbcType=TIMESTAMP},
+      </if>
+                      <if test="companionProductionPlan != null">
+        companion_production_plan = #{companionProductionPlan,jdbcType=VARCHAR},
+      </if>
+                      <if test="generalContractorIntegrator != null">
+        General_contractor_integrator = #{generalContractorIntegrator,jdbcType=VARCHAR},
+      </if>
+                      <if test="tOP10 != null">
+        TOP10 = #{tOP10,jdbcType=VARCHAR},
+      </if>
+                      <if test="scrappageScheme != null">
+        scrappage_scheme = #{scrappageScheme,jdbcType=VARCHAR},
+      </if>
+                      <if test="turnoverConsumptionList != null">
+        turnover_consumption_list = #{turnoverConsumptionList,jdbcType=VARCHAR},
+      </if>
+                      <if test="supplyCycleList != null">
+        supply_cycle_list = #{supplyCycleList,jdbcType=VARCHAR},
+      </if>
+                      <if test="specificationCategoryList != null">
+        specification_category_list = #{specificationCategoryList,jdbcType=VARCHAR},
+      </if>
+                      <if test="frameworkAgreementCoverage != null">
+        framework_agreement_coverage = #{frameworkAgreementCoverage,jdbcType=VARCHAR},
+      </if>
+                      <if test="openingRate != null">
+        opening_rate = #{openingRate,jdbcType=VARCHAR},
+      </if>
+                      <if test="downtimeRate != null">
+        downtime_rate = #{downtimeRate,jdbcType=VARCHAR},
+      </if>
+                      <if test="painPoints != null">
+        pain_points = #{painPoints,jdbcType=VARCHAR},
+      </if>
+                      <if test="materialCoverage != null">
+        material_coverage = #{materialCoverage,jdbcType=VARCHAR},
+      </if>
+                      <if test="comparisonResult != null">
+        comparison_result = #{comparisonResult,jdbcType=VARCHAR},
+      </if>
+                      <if test="conclusion != null">
+        conclusion = #{conclusion,jdbcType=VARCHAR},
+      </if>
+                      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+              </set>
+    where 
+            id = #{id,jdbcType=VARCHAR}
+                                                                                                                                                                                                  
+  </update>
+
+      	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	   	      	
+
+  <update id="updateByPrimaryKey" parameterType="com.xtk.anal.model.auto.ResearchInforTst">
+    update xtk_research_infor_tst
+    set 
+             	        	    	 			registrar = #{registrar,jdbcType=VARCHAR},
+		     	        	    	 			customer_name = #{customerName,jdbcType=VARCHAR},
+		     	        	    	 			description = #{description,jdbcType=VARCHAR},
+		     	        	    	 			workshop = #{workshop,jdbcType=VARCHAR},
+		     	        	    	 			design_capacity = #{designCapacity,jdbcType=VARCHAR},
+		     	        	    	 			assets_original_value = #{assetsOriginalValue,jdbcType=VARCHAR},
+		     	        	    	 			asset_list = #{assetList,jdbcType=VARCHAR},
+		     	        	    	 			SOP_time = #{sOPTime,jdbcType=TIMESTAMP},
+		     	        	    	 			companion_production_plan = #{companionProductionPlan,jdbcType=VARCHAR},
+		     	        	    	 			General_contractor_integrator = #{generalContractorIntegrator,jdbcType=VARCHAR},
+		     	        	    	 			TOP10 = #{tOP10,jdbcType=VARCHAR},
+		     	        	    	 			scrappage_scheme = #{scrappageScheme,jdbcType=VARCHAR},
+		     	        	    	 			turnover_consumption_list = #{turnoverConsumptionList,jdbcType=VARCHAR},
+		     	        	    	 			supply_cycle_list = #{supplyCycleList,jdbcType=VARCHAR},
+		     	        	    	 			specification_category_list = #{specificationCategoryList,jdbcType=VARCHAR},
+		     	        	    	 			framework_agreement_coverage = #{frameworkAgreementCoverage,jdbcType=VARCHAR},
+		     	        	    	 			opening_rate = #{openingRate,jdbcType=VARCHAR},
+		     	        	    	 			downtime_rate = #{downtimeRate,jdbcType=VARCHAR},
+		     	        	    	 			pain_points = #{painPoints,jdbcType=VARCHAR},
+		     	        	    	 			material_coverage = #{materialCoverage,jdbcType=VARCHAR},
+		     	        	    	 			comparison_result = #{comparisonResult,jdbcType=VARCHAR},
+		     	        	    	 			conclusion = #{conclusion,jdbcType=VARCHAR},
+		     	        	    	 			create_time = #{createTime,jdbcType=TIMESTAMP}
+		     	        where 
+            id = #{id,jdbcType=VARCHAR}
+                                                                                                                                                                                                    
+  </update>
+  
+                                                                                                                            
+</mapper>
