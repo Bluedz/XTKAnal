@@ -161,7 +161,21 @@ public class ResearchInforTstController extends BaseController{
    	public ResearchInforTst edit(@PathVariable("id") String id) {
    		return researchInforTstService.selectByPrimaryKey(id);
    	}
-    
 
-	
+
+	/**
+	 * 根据主键查询-2
+	 *
+	 * @param id
+	 * @param mmap
+	 * @return
+	 */
+	@ApiOperation(value = "根据id查询唯一2", notes = "根据id查询唯一2")
+	@GetMapping("/getbyid/{id}")
+	public String getbyid(@PathVariable("id") String id, ModelMap mmap)
+	{
+		mmap.put("ResearchInforTst", researchInforTstService.selectByPrimaryKey(id));
+
+		return prefix + "/showOne";
+	}
 }

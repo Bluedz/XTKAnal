@@ -286,7 +286,7 @@ var exportUrl=window.rootPath+"/ResearchInforTstController/export";
 			    formatter: function (value, row, index) {
 			        var id = row.id;
 			        var actions = [];
-                    actions.push('<a class="btn btn-success btn-xs"  href="#" onclick="$.operate.getById(\'' + row.id + '\')"><i class="fa fa-edit"></i>查看</a>');
+                    actions.push('<a class="btn btn-success btn-xs"  href="#" onclick="$.operate.getById(\'' + row.id + '\')"><i class="fa fa-edit"></i>查看</a> ');
 			        actions.push('<a class="btn btn-success btn-xs"  href="#" onclick="$.operate.edit(\'' + row.id + '\')"><i class="fa fa-edit"></i>编辑</a> ');
 			        actions.push('<a class="btn btn-danger btn-xs" href="#" onclick="$.operate.remove(\'' + row.id + '\')"><i class="fa fa-remove"></i>删除</a>');
 			        return actions.join('');
@@ -296,7 +296,9 @@ var exportUrl=window.rootPath+"/ResearchInforTstController/export";
 $(function(){
 	var oTab=$.table.oTableInit(options);
 	oTab.Init();
-    // hideCol();
+	// 隐藏部分栏
+    initCol();
+    // $("#dataTable").bootstrapTable('hideColumn', 'id');
     })
 </script>
 
@@ -304,12 +306,38 @@ $(function(){
 
 
 </html>
+
+<!--自定义 用于隐藏栏目-->
 <script type="text/javascript">
     $(window).load(function(){
-    //要执行的方法体
-        hideCol();
-
+        //要执行的方法体
+        // initCol();
     });
+
+    function initCol(){
+        $("#dataTable").bootstrapTable('hideColumn', 'id');
+        $("#dataTable").bootstrapTable('hideColumn', 'designCapacity');
+        $("#dataTable").bootstrapTable('hideColumn', 'assetsOriginalValue');
+        $("#dataTable").bootstrapTable('hideColumn', 'assetList');
+        $("#dataTable").bootstrapTable('hideColumn', 'sOPTime');
+        $("#dataTable").bootstrapTable('hideColumn', 'companionProductionPlan');
+        $("#dataTable").bootstrapTable('hideColumn', 'generalContractorIntegrator');
+        $("#dataTable").bootstrapTable('hideColumn', 'tOP10');
+        $("#dataTable").bootstrapTable('hideColumn', 'scrappageScheme');
+        $("#dataTable").bootstrapTable('hideColumn', 'turnoverConsumptionList');
+        $("#dataTable").bootstrapTable('hideColumn', 'supplyCycleList');
+        $("#dataTable").bootstrapTable('hideColumn', 'specificationCategoryList');
+        $("#dataTable").bootstrapTable('hideColumn', 'frameworkAgreementCoverage');
+        $("#dataTable").bootstrapTable('hideColumn', 'openingRate');
+        $("#dataTable").bootstrapTable('hideColumn', 'downtimeRate');
+        $("#dataTable").bootstrapTable('hideColumn', 'painPoints');
+        $("#dataTable").bootstrapTable('hideColumn', 'materialCoverage');
+        $("#dataTable").bootstrapTable('hideColumn', 'comparisonResult');
+        $("#dataTable").bootstrapTable('hideColumn', 'conclusion');
+        // $("#dataTable").bootstrapTable('hideColumn', 'createTime');
+
+
+    }
     function hideCol(){
         $("#dataTable tr").find("th:eq(1)").hide();
         $("#dataTable tr").find("th:eq(6)").hide();
@@ -329,7 +357,8 @@ $(function(){
         $("#dataTable tr").find("th:eq(20)").hide();
         $("#dataTable tr").find("th:eq(21)").hide();
         $("#dataTable tr").find("th:eq(22)").hide();
-        $("#dataTable tr").find("th:eq(23)").hide();//
+        $("#dataTable tr").find("th:eq(23)").hide();
+        //
         $("#dataTable tr").find("td:eq(1)").hide();
         $("#dataTable tr").find("td:eq(6)").hide();
         $("#dataTable tr").find("td:eq(7)").hide();

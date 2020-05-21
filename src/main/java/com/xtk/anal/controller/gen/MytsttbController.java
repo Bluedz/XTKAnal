@@ -171,7 +171,7 @@ public class MytsttbController extends BaseController{
 	 */
 	@ApiOperation(value = "根据id查询唯一2", notes = "根据id查询唯一2")
 	@RequiresPermissions("gen:mytsttb:getbyid")
-	@RequestMapping("/getbyid/{id}")
+	@GetMapping("/getbyid/{id}")
 	public String getById(@PathVariable("id") String id, ModelMap mmap) {
 		String str="《查单个内容》";
 		setTitle(mmap, new TitleVo("列表", str+"管理", true,"欢迎进入"+str+"页面", true, false));
