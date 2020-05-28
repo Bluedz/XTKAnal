@@ -41,6 +41,19 @@ public class ResearchInforTstController extends BaseController{
 		setTitle(model, new TitleVo("列表", str+"管理", true,"欢迎进入"+str+"页面", true, false));
         return prefix + "/list";
     }
+
+	/**
+	 * 分页跳转-user
+	 */
+	@ApiOperation(value = "分页跳转-user", notes = "分页跳转-user")
+	@GetMapping("/userview")
+	@RequiresPermissions("gen:researchInforTst:userview")
+	public String userview(ModelMap model)
+	{
+		String str="调研信息登记表";
+		setTitle(model, new TitleVo("列表", str+"管理", true,"欢迎进入"+str+"页面", true, false));
+		return prefix + "/userlist";
+	}
 	
 	/**
 	 * 分页查询
@@ -53,6 +66,20 @@ public class ResearchInforTstController extends BaseController{
 	public Object list(Tablepar tablepar,String searchText){
 		PageInfo<ResearchInforTst> page=researchInforTstService.list(tablepar,searchText) ; 
 		TableSplitResult<ResearchInforTst> result=new TableSplitResult<ResearchInforTst>(page.getPageNum(), page.getTotal(), page.getList()); 
+		return  result;
+	}
+
+	/**
+	 * 分页查询-user
+	 */
+	//@Log(title = "调研信息登记表集合查询", action = "111")
+	@ApiOperation(value = "分页查询-user", notes = "分页查询-user")
+	@PostMapping("/userlist")
+	@RequiresPermissions("gen:researchInforTst:userlist")
+	@ResponseBody
+	public Object userlist(Tablepar tablepar,String searchText){
+		PageInfo<ResearchInforTst> page=researchInforTstService.userList(tablepar,searchText) ;
+		TableSplitResult<ResearchInforTst> result=new TableSplitResult<ResearchInforTst>(page.getPageNum(), page.getTotal(), page.getList());
 		return  result;
 	}
 	

@@ -24,6 +24,8 @@ public interface ResearchInforTstMapper {
     int insertSelective(ResearchInforTst record);
 
     List<ResearchInforTst> selectByExample(ResearchInforTstExample example);
+
+    List<ResearchInforTst> selectByExampleUser(ResearchInforTstExample example);
 		
     ResearchInforTst selectByPrimaryKey(String id);
 		

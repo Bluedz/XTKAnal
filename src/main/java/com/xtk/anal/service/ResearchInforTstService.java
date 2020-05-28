@@ -51,6 +51,28 @@ public class ResearchInforTstService implements BaseService<ResearchInforTst, Re
 	        return  pageInfo;
 	 }
 
+	/**
+	 * 分页查询-user
+	 * @param pageNum
+	 * @param pageSize
+	 * @return
+	 */
+	public PageInfo<ResearchInforTst> userList(Tablepar tablepar,String name){
+		ResearchInforTstExample testExample=new ResearchInforTstExample();
+		testExample.setOrderByClause("id ASC");
+		if(name!=null&&!"".equals(name)){
+			testExample.createCriteria().andRegistrarLike("%"+name+"%");
+		}
+		if(StrUtil.isNotEmpty(tablepar.getOrderByColumn())) {
+			testExample.setOrderByClause(StringUtils.toUnderScoreCase(tablepar.getOrderByColumn()) +" "+tablepar.getIsAsc());
+		}
+		PageHelper.startPage(tablepar.getPageNum(), tablepar.getPageSize());
+		List<ResearchInforTst> list= researchInforTstMapper.selectByExampleUser(testExample);
+		PageInfo<ResearchInforTst> pageInfo = new PageInfo<ResearchInforTst>(list);
+		return  pageInfo;
+	}
+
+
 	@Override
 	public int deleteByPrimaryKey(String ids) {
 				
