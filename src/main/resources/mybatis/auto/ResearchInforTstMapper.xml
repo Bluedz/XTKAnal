@@ -125,7 +125,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExampleUser" parameterType="com.xtk.anal.model.auto.ResearchInforTstExample" resultMap="BaseResultMap">
+  <select id="selectByExampleUser"  parameterType="com.xtk.anal.model.auto.ResearchInforTstExample" resultMap="BaseResultMap">
         select
         <if test="distinct">
             distinct
@@ -135,7 +135,7 @@
         <if test="_parameter != null">
             <include refid="Example_Where_Clause" />
         </if>
-        where registrar = 'user01'
+
         <if test="orderByClause != null">
             order by ${orderByClause}
         </if>

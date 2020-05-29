@@ -16,6 +16,8 @@ import com.xtk.anal.model.custom.Tablepar;
 import com.xtk.anal.util.SnowflakeIdWorker;
 import com.xtk.anal.util.StringUtils;
 
+import com.xtk.anal.shiro.util.ShiroUtils;
+
 /**
  * 调研信息登记表 ResearchInforTstService
  * @Title: ResearchInforTstService.java 
@@ -60,6 +62,9 @@ public class ResearchInforTstService implements BaseService<ResearchInforTst, Re
 	public PageInfo<ResearchInforTst> userList(Tablepar tablepar,String name){
 		ResearchInforTstExample testExample=new ResearchInforTstExample();
 		testExample.setOrderByClause("id ASC");
+
+		testExample.createCriteria().andRegistrarLike("%"+ShiroUtils.getLoginName()+"%"); // [zyh]: 输入特定的用户条件
+
 		if(name!=null&&!"".equals(name)){
 			testExample.createCriteria().andRegistrarLike("%"+name+"%");
 		}
@@ -75,77 +80,77 @@ public class ResearchInforTstService implements BaseService<ResearchInforTst, Re
 
 	@Override
 	public int deleteByPrimaryKey(String ids) {
-				
+
 			List<String> lista=Convert.toListStrArray(ids);
 			ResearchInforTstExample example=new ResearchInforTstExample();
 			example.createCriteria().andIdIn(lista);
 			return researchInforTstMapper.deleteByExample(example);
-			
-				
-	}
-	
-	
-	@Override
-	public ResearchInforTst selectByPrimaryKey(String id) {
-				
-			return researchInforTstMapper.selectByPrimaryKey(id);
-				
+
+
 	}
 
-	
+
+	@Override
+	public ResearchInforTst selectByPrimaryKey(String id) {
+
+			return researchInforTstMapper.selectByPrimaryKey(id);
+
+	}
+
+
 	@Override
 	public int updateByPrimaryKeySelective(ResearchInforTst record) {
 		return researchInforTstMapper.updateByPrimaryKeySelective(record);
 	}
-	
-	
+
+
 	/**
 	 * 添加
 	 */
 	@Override
 	public int insertSelective(ResearchInforTst record) {
-				
+
 		//添加雪花主键id
 		record.setId(SnowflakeIdWorker.getUUID());
-			
-				
+
+
 		return researchInforTstMapper.insertSelective(record);
 	}
-	
-	
+
+
 	@Override
 	public int updateByExampleSelective(ResearchInforTst record, ResearchInforTstExample example) {
-		
+
 		return researchInforTstMapper.updateByExampleSelective(record, example);
 	}
 
-	
+
 	@Override
 	public int updateByExample(ResearchInforTst record, ResearchInforTstExample example) {
-		
+
 		return researchInforTstMapper.updateByExample(record, example);
 	}
 
 	@Override
 	public List<ResearchInforTst> selectByExample(ResearchInforTstExample example) {
-		
+
 		return researchInforTstMapper.selectByExample(example);
 	}
 
-	
+
 	@Override
 	public long countByExample(ResearchInforTstExample example) {
-		
+
 		return researchInforTstMapper.countByExample(example);
 	}
 
-	
+
 	@Override
 	public int deleteByExample(ResearchInforTstExample example) {
-		
+
 		return researchInforTstMapper.deleteByExample(example);
 	}
-	
+
 	/**
 	 * 检查name
 	 * @param researchInforTst

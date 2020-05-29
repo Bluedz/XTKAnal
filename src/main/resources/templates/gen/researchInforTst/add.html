@@ -38,6 +38,9 @@
 										<label class="col-sm-3 control-label ">客户名称：</label>
 										<div class="col-sm-8">
 											<input class="form-control" type="text" id="customerName" name="customerName"/>
+											<select name="sex" class="form-control m-b" th:with="type=${@dict.getType('sys_province_state')}">
+												<option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+											</select>
 										</div>
 									</div>
 									
@@ -58,54 +61,54 @@
 									</div>
 									
 								
-									<div class="form-group">
-										<label class="col-sm-3 control-label ">设计产能：</label>
-										<div class="col-sm-8">
-											<input class="form-control" type="text" id="designCapacity" name="designCapacity"/>
-										</div>
-									</div>
+<!--									<div class="form-group">-->
+<!--										<label class="col-sm-3 control-label ">设计产能：</label>-->
+<!--										<div class="col-sm-8">-->
+<!--											<input class="form-control" type="text" id="designCapacity" name="designCapacity"/>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--									-->
+<!--								-->
+<!--									<div class="form-group">-->
+<!--										<label class="col-sm-3 control-label ">设备资产原值：</label>-->
+<!--										<div class="col-sm-8">-->
+<!--											<input class="form-control" type="text" id="assetsOriginalValue" name="assetsOriginalValue"/>-->
+<!--										</div>-->
+<!--									</div>-->
 									
 								
-									<div class="form-group">
-										<label class="col-sm-3 control-label ">设备资产原值：</label>
-										<div class="col-sm-8">
-											<input class="form-control" type="text" id="assetsOriginalValue" name="assetsOriginalValue"/>
-										</div>
-									</div>
-									
-								
-									<div class="form-group">
+<!--									<div class="form-group">
 										<label class="col-sm-3 control-label ">资产清单(xls)：</label>
 										<div class="col-sm-8">
 											<input class="form-control" type="text" id="assetList" name="assetList"/>
 										</div>
 									</div>
-									
+									-->
 						
-									<div class="form-group">
-										<label class="col-sm-3 control-label ">SOP时间：</label>
-										<div class="col-sm-8">
-											<input class="form-control MyDate" type="text" id="sOPTime" name="sOPTime"/>
-										</div>
-									</div>
+<!--									<div class="form-group">-->
+<!--										<label class="col-sm-3 control-label ">SOP时间：</label>-->
+<!--										<div class="col-sm-8">-->
+<!--											<input class="form-control MyDate" type="text" id="sOPTime" name="sOPTime"/>-->
+<!--										</div>-->
+<!--									</div>-->
 								
-									<div class="form-group">
+<!--									<div class="form-group">
 										<label class="col-sm-3 control-label ">陪产计划(xls)：</label>
 										<div class="col-sm-8">
 											<input class="form-control" type="text" id="companionProductionPlan" name="companionProductionPlan"/>
 										</div>
-									</div>
+									</div>-->
 									
 								
-									<div class="form-group">
-										<label class="col-sm-3 control-label ">总包(集成)商：</label>
-										<div class="col-sm-8">
-											<input class="form-control" type="text" id="generalContractorIntegrator" name="generalContractorIntegrator"/>
-										</div>
-									</div>
+<!--									<div class="form-group">-->
+<!--										<label class="col-sm-3 control-label ">总包(集成)商：</label>-->
+<!--										<div class="col-sm-8">-->
+<!--											<input class="form-control" type="text" id="generalContractorIntegrator" name="generalContractorIntegrator"/>-->
+<!--										</div>-->
+<!--									</div>-->
 									
 								
-									<div class="form-group">
+								<!--	<div class="form-group">
 										<label class="col-sm-3 control-label ">TOP10设备清单(xls)：</label>
 										<div class="col-sm-8">
 											<input class="form-control" type="text" id="tOP10" name="tOP10"/>
@@ -150,55 +153,55 @@
 										<div class="col-sm-8">
 											<input class="form-control" type="text" id="frameworkAgreementCoverage" name="frameworkAgreementCoverage"/>
 										</div>
-									</div>
+									</div>-->
 									
 								
-									<div class="form-group">
-										<label class="col-sm-3 control-label ">设备开通率：</label>
-										<div class="col-sm-8">
-											<input class="form-control" type="text" id="openingRate" name="openingRate"/>
-										</div>
-									</div>
+<!--									<div class="form-group">-->
+<!--										<label class="col-sm-3 control-label ">设备开通率：</label>-->
+<!--										<div class="col-sm-8">-->
+<!--											<input class="form-control" type="text" id="openingRate" name="openingRate"/>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--									-->
+<!--								-->
+<!--									<div class="form-group">-->
+<!--										<label class="col-sm-3 control-label ">设备停机率：</label>-->
+<!--										<div class="col-sm-8">-->
+<!--											<input class="form-control" type="text" id="downtimeRate" name="downtimeRate"/>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--									-->
+<!--								-->
+<!--									<div class="form-group">-->
+<!--										<label class="col-sm-3 control-label ">需求及痛点简要：</label>-->
+<!--										<div class="col-sm-8">-->
+<!--											<input class="form-control" type="text" id="painPoints" name="painPoints"/>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--									-->
+<!--								-->
+<!--									<div class="form-group">-->
+<!--										<label class="col-sm-3 control-label ">物料覆盖率：</label>-->
+<!--										<div class="col-sm-8">-->
+<!--											<input class="form-control" type="text" id="materialCoverage" name="materialCoverage"/>-->
+<!--										</div>-->
+<!--									</div>-->
 									
 								
-									<div class="form-group">
-										<label class="col-sm-3 control-label ">设备停机率：</label>
-										<div class="col-sm-8">
-											<input class="form-control" type="text" id="downtimeRate" name="downtimeRate"/>
-										</div>
-									</div>
-									
-								
-									<div class="form-group">
-										<label class="col-sm-3 control-label ">需求及痛点简要：</label>
-										<div class="col-sm-8">
-											<input class="form-control" type="text" id="painPoints" name="painPoints"/>
-										</div>
-									</div>
-									
-								
-									<div class="form-group">
-										<label class="col-sm-3 control-label ">物料覆盖率：</label>
-										<div class="col-sm-8">
-											<input class="form-control" type="text" id="materialCoverage" name="materialCoverage"/>
-										</div>
-									</div>
-									
-								
-									<div class="form-group">
+<!--									<div class="form-group">
 										<label class="col-sm-3 control-label ">比对结果清单(xls)：</label>
 										<div class="col-sm-8">
 											<input class="form-control" type="text" id="comparisonResult" name="comparisonResult"/>
 										</div>
 									</div>
-									
+									-->
 								
-									<div class="form-group">
-										<label class="col-sm-3 control-label ">调研分析结论：</label>
-										<div class="col-sm-8">
-											<input class="form-control" type="text" id="conclusion" name="conclusion"/>
-										</div>
-									</div>
+<!--									<div class="form-group">-->
+<!--										<label class="col-sm-3 control-label ">调研分析结论：</label>-->
+<!--										<div class="col-sm-8">-->
+<!--											<input class="form-control" type="text" id="conclusion" name="conclusion"/>-->
+<!--										</div>-->
+<!--									</div>-->
 									
 						
 									<div class="form-group">
