@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.pollix.at/thymeleaf/shiro">
+<head th:replace="admin/common/html/head :: head_Normal(~{::title},~{::link},~{::style})">
+
+    <title th:text=${title}></title>
+    <!-- 这儿引用单独的css link -->
+    <!-- Ladda for Bootstrap 3按钮加载进度插件 -->
+    <link rel="stylesheet" th:href="@{/static/admin/assets/js/button/ladda/ladda.min.css}">
+    <!-- bootstrap-table表单样式 -->
+    <link th:href="@{/static/admin/assets/js/bootstrap/css/bootstrap-table/bootstrap-table.min.css}" rel="stylesheet"/>
+
+    <style type="text/css">
+        /**
+        *这里写单独的css样式
+        */
+
+    </style>
+
+</head>
+<body id="listbody">
+<!-- # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 代码编写处 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # -->
+<!-- 右边内容 -->
+<div class="wrap-fluid">
+    <div class="container-fluid paper-wrap bevel tlbr">
+        <!-- 内容 -->
+        <!--标题 通用-->
+        <div th:replace="admin/common/html/title :: title(${title},${parenttitle},${isMsg},${msgHTML})">
+        </div>
+        <!-- 结束标题 通用-->
+        <div class="content-wrap">
+            <!-- 结束内容 -->
+            <div class="row">
+                <div class="col-sm-12">
+
+
+
+                    <!-- 空白页开始-->
+                    <div class="nest" id="Blank_PageClose">
+                        <div class="title-alt">
+                            <h6>表单</h6>
+                            <div class="titleClose">
+                                <a class="gone" href="#Blank_PageClose">
+                                    <span class="entypo-cancel"></span>
+                                </a>
+                            </div>
+                            <div class="titleToggle">
+                                <a class="nav-toggle-alt" href="#Blank_Page_Content">
+                                    <span class="entypo-up-open"></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="body-nest" id="Blank_Page_Content">
+                            <!--                            自有内容 ？-->
+                            <iframe width="100%" id="mainFrame" name="mainFrame" src="http://localhost:9000/matComp2.html"
+                                    height="500px"
+                                    frameborder="0" marginheight="0" marginwidth="0" border="false"></iframe>
+
+
+                            <!--                            自有内容 ？-->
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <!-- 空白页结束 -->
+            </div>
+        </div>
+        <!-- 结束内容 -->
+    </div>
+
+</div>
+</div>
+
+<!-- # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 代码编写处 END# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # -->
+</body>
+<script type="text/javascript"></script>
+</html>

@@ -28,7 +28,22 @@ public class ResearchInforTstController extends BaseController{
 	private String prefix = "gen/researchInforTst";
 	@Autowired
 	private ResearchInforTstService researchInforTstService;
-	
+
+	// - temp -
+	/**
+	 * - temp 物料比对-
+	 */
+	@ApiOperation(value = "temp 物料比对", notes = "temp 物料比对")
+	@GetMapping("/matComp")
+	@RequiresPermissions("gen:researchInforTst:view")
+	public String matComp(ModelMap model)
+	{
+		String str="物料比对";
+		setTitle(model, new TitleVo("列表", str+"管理", true,"欢迎进入"+str+"页面", true, false));
+		return "temp" + "/matComp";
+	}
+	// - temp -
+
 	/**
 	 * 分页跳转
 	 */
@@ -92,6 +107,19 @@ public class ResearchInforTstController extends BaseController{
     {
         return prefix + "/add";
     }
+
+	/**
+	 * 新增跳转-整页
+	 */
+	@ApiOperation(value = "新增跳转-整页", notes = "新增跳转-整页")
+	@GetMapping("/addPage")
+	public String addPage(ModelMap modelMap)
+	{
+		String str="记录新增";
+		setTitle(modelMap, new TitleVo("列表", str+"管理", true,"欢迎进入"+str+"页面", true, false));
+
+		return prefix + "/addPage";
+	}
 	
 	/**
      * 新增
